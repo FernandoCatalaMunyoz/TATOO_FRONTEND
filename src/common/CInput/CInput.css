@@ -1,10 +1,10 @@
 .inputDesign {
-  height: 3em;
+  height: 2em;
   width: 18em;
 
-  border: 0.2em solid black;
-  border-radius: 0.5em;
-  margin: 1em;
+  border: 0.1em solid black;
+  border-radius: 0.2em;
+  margin: 0.5em;
 }
 
 .inputDesignError {

@@ -70,53 +70,54 @@ export const Register = () => {
   return (
     <>
       <Header />
+
       <div className="registerDesign">
-        <div>Nombre</div>
+        <div>Registro de Usuario</div>
         <CInput
           className={`inputDesign ${
             userError.first_nameError !== "" ? "inputDesignError" : ""
           }`}
           type={"text"}
-          placeholder={"First name"}
+          placeHolder={"Nombre"}
           name={"first_name"}
           value={user.first_name || ""}
           onChangeFunction={(e) => inputHandler(e)}
           onBlurFunction={(e) => checkError(e)}
         />
         <div className="error">{userError.nameError}</div>
-        <div>Apellido</div>
+
         <CInput
           className={`inputDesign ${
             userError.last_nameError !== "" ? "inputDesignError" : ""
           }`}
           type={"text"}
-          placeholder={"Last name"}
+          placeHolder={"Apellido"}
           name={"last_name"}
           value={user.last_name || ""}
           onChangeFunction={(e) => inputHandler(e)}
           onBlurFunction={(e) => checkError(e)}
         />
         <div className="error">{userError.nameError}</div>
-        <div>Email</div>
+
         <CInput
           className={`inputDesign ${
             userError.emailError !== "" ? "inputDesignError" : ""
           }`}
           type={"email"}
-          placeholder={"email"}
+          placeHolder={"email"}
           name={"email"}
           value={user.email || ""}
           onChangeFunction={(e) => inputHandler(e)}
           onBlurFunction={(e) => checkError(e)}
         />
         <div className="error">{userError.emailError}</div>
-        <div>Password</div>
+
         <CInput
           className={`inputDesign ${
             userError.passwordError !== "" ? "inputDesignError" : ""
           }`}
           type={"password"}
-          placeholder={"password"}
+          placeHolder={"password"}
           name={"password"}
           value={user.password || ""}
           onChangeFunction={(e) => inputHandler(e)}
