@@ -1,25 +1,29 @@
-import { useEffect, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { CButton } from "../../common/CButton/CButton";
 import { CInput } from "../../common/CInput/CInput";
-import { Header } from "../../common/Header/Header";
-import "./Login.css";
+
+import "./login.css";
 import { LoginUser } from "../../services/apiCalls";
 import { useNavigate } from "react-router-dom";
 import { decodeToken } from "react-jwt";
+import { Header } from "../../common/Header/Header";
 
 export const Login = () => {
-  const dataUser = JSON.parse(localStorage.getItem("passport"));
+  const datosUser = JSON.parse(localStorage.getItem("passport"));
   const navigate = useNavigate();
-  const [tokenStorage, setTokenStorage] = useState(dataUser?.token);
+  const [tokenStorage, setTokenStorage] = useState(datosUser?.token);
 
-  const [credentials, setCredentials] = useState({
+  const [credenciales, setCredenciales] = useState({
     email: "",
     password: "",
   });
-  const [credentialsError, setCredentialsError] = useState({
-    email: "",
-    password: "",
+
+  const [credencialesError, setCredencialesError] = useState({
+    emailError: "",
+    passwordError: "",
   });
+
+  const [msgError, setMsgError] = useState("");
 
   useEffect(() => {
     if (tokenStorage) {
@@ -27,23 +31,41 @@ export const Login = () => {
     }
   }, [tokenStorage]);
 
+  const inputHandler = (e) => {
+    setCredenciales((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  //   const checkError = (e) => {
+  //     const error = validame(e.target.first_name, e.target.value);
+
+  //     setCredencialesError((prevState) => ({
+  //       ...prevState,
+  //       [e.target.name + "Error"]: error,
+  //       //el truco del almendruco nos dice que seria... nameError: error, o emailError: error
+  //     }));
+  //   };
+
   const loginMe = async () => {
     try {
-      for (let element in credentials) {
-        if (credentials[element] === "") {
+      for (let elemento in credenciales) {
+        if (credenciales[elemento] === "") {
           throw new Error("Todos los campos tienen que estar rellenos");
         }
       }
 
-      const fetched = LoginUser(credentials);
-      const decoded = decodeToken(fetched.token);
+      const fetched = await LoginUser(credenciales);
+
+      const decodificado = decodeToken(fetched.token);
 
       const passport = {
         token: fetched.token,
-        decoded: decoded,
+        decodificado: decodificado,
       };
 
-      localStorage.setItem("passport".JSON.stringify(passport));
+      localStorage.setItem("passport", JSON.stringify(passport));
 
       setTimeout(() => {
         navigate("/");
@@ -52,9 +74,10 @@ export const Login = () => {
       setMsgError(error.message);
     }
   };
+
   return (
     <>
-      <Header></Header>
+      <Header />
       <div className="loginDesign">
         <CInput
           className={`inputDesign ${
@@ -64,11 +87,11 @@ export const Login = () => {
           placeholder={"email"}
           name={"email"}
           disabled={""}
-          value={credentials.email || ""}
+          value={credenciales.email || ""}
           onChangeFunction={(e) => inputHandler(e)}
-          onBlurFunction={(e) => checkError(e)}
+          //   onBlurFunction={(e) => checkError(e)}
         />
-        <div className="error">{credentialsError.emailError}</div>
+        <div className="error">{credencialesError.emailError}</div>
         <CInput
           className={`inputDesign ${
             credencialesError.passwordError !== "" ? "inputDesignError" : ""
@@ -77,11 +100,11 @@ export const Login = () => {
           placeholder={"password"}
           name={"password"}
           disabled={""}
-          value={credentials.password || ""}
+          value={credenciales.password || ""}
           onChangeFunction={(e) => inputHandler(e)}
-          onBlurFunction={(e) => checkError(e)}
+          //   onBlurFunction={(e) => checkError(e)}
         />
-        <div className="error">{credentialsError.passwordError}</div>
+        <div className="error">{credencialesError.passwordError}</div>
 
         <CButton
           className={"cButtonDesign"}

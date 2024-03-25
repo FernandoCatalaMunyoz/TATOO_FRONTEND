@@ -7,7 +7,8 @@ export const Header = () => {
   const passport = JSON.parse(localStorage.getItem("passport"));
 
   const logOut = () => {
-    //Esta funcion deslogueara en un futuri
+    localStorage.removeItem("passport");
+    navigate("/");
   };
 
   return (
@@ -15,8 +16,13 @@ export const Header = () => {
       <Navigator title={"home"} destination={"/"}></Navigator>
       {passport?.token ? (
         <div>
-          <Navigator title={"nickdelusuario"} destination={"/"}></Navigator>
-          <Navigator title={"log out"} onClick={() => logOut()}></Navigator>
+          <Navigator
+            title={passport?.decodificado?.name}
+            destination={"/"}
+          ></Navigator>
+          <div onClick={logOut}>
+            <Navigator title={"log out"} destination={"/"}></Navigator>
+          </div>
         </div>
       ) : (
         <div className="authMenu">

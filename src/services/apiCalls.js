@@ -24,19 +24,19 @@ export const RegisterUser = async (user) => {
   }
 };
 
-export const LoginUser = async (credentials) => {
+export const LoginUser = async (credenciales) => {
   const options = {
     method: "POST",
     headers: {
-      "Content-type": "application/json",
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify(credentials),
+    body: JSON.stringify(credenciales),
   };
   try {
-    const response = await fetch(`${root}login`, options);
+    const response = await fetch(`${root}auth/login`, options);
 
     const data = await response.json();
-
+    console.log(data);
     if (!data.succes) {
       throw new Error(data.message);
     }

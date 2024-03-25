@@ -1,7 +1,7 @@
 import { Route, Routes, Navigate } from "react-router-dom";
 import { Home } from "../Home/Home";
 import { Register } from "../Register/Register";
-// import { Login } from "../Login/Login";
+import { Login } from "../login/login";
 
 export const Body = () => {
   return (
@@ -9,7 +9,7 @@ export const Body = () => {
       <Route path="*" element={<Navigate to={"/"} replace />} />
       <Route path="/" element={<Home />} />
       <Route path="/register" element={<Register />} />
-      {/* <Route path="/login" element={<Login />} /> */}
+      <Route path="/login" element={<Login />} />
     </Routes>
   );
 };

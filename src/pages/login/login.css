@@ -1,2 +1,16 @@
 .loginDesign {
+  height: 90vh;
+  width: 100vw;
+
+  background-color: beige;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error {
+  height: 1em;
+  color: red;
 }
