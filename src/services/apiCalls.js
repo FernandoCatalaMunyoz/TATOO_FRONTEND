@@ -33,7 +33,7 @@ export const LoginUser = async (credentials) => {
     body: JSON.stringify(credentials),
   };
   try {
-    const response = await fetch(`${root}auth/login`, options);
+    const response = await fetch(`${root}login`, options);
 
     const data = await response.json();
 
