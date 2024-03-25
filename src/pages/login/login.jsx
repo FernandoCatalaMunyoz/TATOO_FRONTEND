@@ -38,16 +38,6 @@ export const Login = () => {
     }));
   };
 
-  //   const checkError = (e) => {
-  //     const error = validame(e.target.first_name, e.target.value);
-
-  //     setCredencialesError((prevState) => ({
-  //       ...prevState,
-  //       [e.target.name + "Error"]: error,
-  //       //el truco del almendruco nos dice que seria... nameError: error, o emailError: error
-  //     }));
-  //   };
-
   const loginMe = async () => {
     try {
       for (let elemento in credenciales) {

@@ -13,21 +13,19 @@ export const Header = () => {
 
   return (
     <div className="headerDesign">
-      <Navigator title={"home"} destination={"/"}></Navigator>
+      <Navigator title={"home"} destination={"/"} />
+
       {passport?.token ? (
-        <div>
-          <Navigator
-            title={passport?.decodificado?.name}
-            destination={"/"}
-          ></Navigator>
+        <div className="authMenu">
+          <Navigator title={"Perfil"} destination={"/profile"} />
           <div onClick={logOut}>
-            <Navigator title={"log out"} destination={"/"}></Navigator>
+            <Navigator title={"log out"} destination={"/"} />
           </div>
         </div>
       ) : (
         <div className="authMenu">
-          <Navigator title={"register"} destination={"/register"}></Navigator>
-          <Navigator title={"Login"} destination={"/login"}></Navigator>
+          <Navigator title={"register"} destination={"/register"} />
+          <Navigator title={"login"} destination={"/login"} />
         </div>
       )}
     </div>
