@@ -45,3 +45,11 @@ export const LoginUser = async (credenciales) => {
     return error;
   }
 };
+
+export const getServices = async () => {
+  const response = await fetch(`${root}auth/services`);
+  const data = await response.json();
+  console.log(data);
+
+  return data;
+};
