@@ -1,0 +1,13 @@
+.cardDesign {
+  border: 0.1em solid black;
+  margin: 1em;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.titleDesign {
+  font-weight: bold;
+}

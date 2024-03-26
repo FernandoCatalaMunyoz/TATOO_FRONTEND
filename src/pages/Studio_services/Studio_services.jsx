@@ -27,7 +27,7 @@ export const Services = () => {
               return (
                 <Card
                   key={service.id}
-                  name={service.serviceName}
+                  serviceName={service.servicesName}
                   description={service.description}
                 ></Card>
               );
