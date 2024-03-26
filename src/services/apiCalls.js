@@ -50,6 +50,5 @@ export const getServices = async () => {
   const response = await fetch(`${root}auth/services`);
   const data = await response.json();
   console.log(data);
-
-  return data;
+  return data.data;
 };
