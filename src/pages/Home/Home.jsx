@@ -5,7 +5,9 @@ export const Home = () => {
   return (
     <>
       <Header></Header>
-      <div className="homeDesign"></div>
+      <div className="homeDesign">
+        <img src="../../img/estudio-tatuaje-decoracion.jpg" alt="" srcset="" />
+      </div>
     </>
   );
 };
