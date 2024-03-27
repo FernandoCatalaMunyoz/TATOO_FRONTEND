@@ -63,11 +63,12 @@ export const Profile = () => {
     try {
       const fetched = await UpdateProfile(tokenStorage, user);
 
-      setUser({
-        firstName: fetched.data.firstName,
-        lastName: fetched.data.lastName,
-        email: fetched.data.email,
-      });
+      setUser((prevState) => ({
+        ...prevState,
+        firstName: fetched.data.firstName || prevState.firstName,
+        lastName: fetched.data.lastName || prevState.lastName,
+        email: fetched.data.email || prevState.email,
+      }));
 
       setWrite("disabled");
     } catch (error) {
@@ -116,7 +117,7 @@ export const Profile = () => {
               className={
                 write === "" ? "cButtonGreen cButtonDesign" : "cButtonDesign"
               }
-              title={write === "" ? "Confirm" : "Edit"}
+              title={write === "" ? "Confirmar" : "Editar"}
               functionEmit={write === "" ? updateData : () => setWrite("")}
             />
           </div>
