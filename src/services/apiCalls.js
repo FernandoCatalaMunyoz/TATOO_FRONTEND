@@ -46,14 +46,14 @@ export const LoginUser = async (credenciales) => {
   }
 };
 
-export const getServices = async () => {
+export const GetServices = async () => {
   const response = await fetch(`${root}auth/services`);
   const data = await response.json();
   console.log(data);
   return data.data;
 };
 
-export const getProfile = async (token) => {
+export const GetProfile = async (token) => {
   const options = {
     method: "GET",
     headers: {
@@ -63,19 +63,21 @@ export const getProfile = async (token) => {
   };
   try {
     const response = await fetch(`${root}users/profile`, options);
-
     const data = await response.json();
 
     if (!data.succes) {
       throw new Error(data.message);
     }
+    console.log(token);
     return data;
   } catch (error) {
     return error;
   }
 };
 
-export const updateProfile = async (token, data) => {
+export const UpdateProfile = async (token, data) => {
+  console.log(token);
+  console.log(data, "data");
   const options = {
     method: "PUT",
     headers: {
@@ -84,13 +86,13 @@ export const updateProfile = async (token, data) => {
     },
     body: JSON.stringify(data),
   };
+
   try {
     const response = await fetch(`${root}users/profile`, options);
-
     const data = await response.json();
 
-    if (!data.succes) {
-      throw new Error(data.message);
+    if (!data.success) {
+      throw new Error("data.message");
     }
     return data;
   } catch (error) {

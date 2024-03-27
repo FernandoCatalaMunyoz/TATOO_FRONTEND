@@ -5,6 +5,7 @@ export const CInput = ({
   type,
   placeHolder,
   name,
+  disabled,
   value,
   onChangeFunction,
   onBlurFunction,
@@ -15,8 +16,8 @@ export const CInput = ({
       type={type}
       placeholder={placeHolder}
       name={name}
+      disabled={disabled}
       value={value}
-      //emit, recibimos la funcion por props que esta en el padre
       onChange={onChangeFunction}
       onBlur={onBlurFunction}
     />

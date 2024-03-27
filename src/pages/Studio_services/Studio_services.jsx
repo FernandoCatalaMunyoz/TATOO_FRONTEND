@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Studio_services.css";
-import { getServices } from "../../services/apiCalls";
+import { GetServices } from "../../services/apiCalls";
 import { Card } from "../../common/Card/Card";
 import { Header } from "../../common/Header/Header";
 
@@ -10,7 +10,7 @@ export const Services = () => {
   useEffect(() => {
     if (services.length === 0) {
       const bringData = async () => {
-        const fetched = await getServices();
+        const fetched = await GetServices();
         setServices(fetched);
       };
       bringData();
