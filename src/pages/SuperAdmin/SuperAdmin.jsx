@@ -6,8 +6,7 @@ import { Card } from "../../common/Card/Card";
 
 export const SuperAdmin = () => {
   const user = JSON.parse(localStorage.getItem("passport"));
-  console.log(user, "user");
-  console.log(user.decodificado.roleName, "decodificado");
+
   const navigate = useNavigate();
   const [users, setUsers] = useState([]);
 
@@ -21,7 +20,8 @@ export const SuperAdmin = () => {
     if (users.length === 0) {
       const bringData = async () => {
         const fetched = await GetUsers();
-        setUsers(fetched);
+        console.log(fetched.data, "fetcheado");
+        setUsers(fetched.data);
       };
       bringData();
     }

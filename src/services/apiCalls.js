@@ -36,7 +36,6 @@ export const LoginUser = async (credenciales) => {
     const response = await fetch(`${root}auth/login`, options);
 
     const data = await response.json();
-    console.log(data);
     if (!data.succes) {
       throw new Error(data.message);
     }
@@ -49,11 +48,11 @@ export const LoginUser = async (credenciales) => {
 export const GetServices = async () => {
   const response = await fetch(`${root}auth/services`);
   const data = await response.json();
-  console.log(data);
   return data.data;
 };
 
-export const GetUsers = async (token) => {
+export const GetUsers = async () => {
+  const token = JSON.parse(localStorage.getItem("passport")).token;
   const options = {
     method: "GET",
     headers: {
@@ -61,16 +60,10 @@ export const GetUsers = async (token) => {
       Authorization: `Bearer ${token}`,
     },
   };
-  try {
-    const response = await fetch(`${root}users`, options);
-    const data = await response.json();
-    console.log(data);
-    return data;
-  } catch (error) {}
 
-  const response = await fetch(`${root}users`);
+  const response = await fetch(`${root}users`, options);
   const data = await response.json();
-  console.log(data);
+  console.log(data, "respuesta");
   return data;
 };
 
