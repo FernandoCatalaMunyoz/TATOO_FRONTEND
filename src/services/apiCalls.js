@@ -53,7 +53,21 @@ export const GetServices = async () => {
   return data.data;
 };
 
-export const GetUsers = async () => {
+export const GetUsers = async (token) => {
+  const options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  try {
+    const response = await fetch(`${root}users`, options);
+    const data = await response.json();
+    console.log(data);
+    return data;
+  } catch (error) {}
+
   const response = await fetch(`${root}users`);
   const data = await response.json();
   console.log(data);

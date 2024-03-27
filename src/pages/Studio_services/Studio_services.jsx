@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./Studio_services.css";
+import "../../common/Card/Card.css";
 import { GetServices } from "../../services/apiCalls";
 import { Card } from "../../common/Card/Card";
 import { Header } from "../../common/Header/Header";

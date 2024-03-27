@@ -6,7 +6,7 @@ export const Home = () => {
     <>
       <Header></Header>
       <div className="homeDesign">
-        <img src="../../img/estudio-tatuaje-decoracion.jpg" alt="" srcset="" />
+        <img src="../../img/estudio-tatuaje-decoracion.jpg" alt="" srcSet="" />
       </div>
     </>
   );
