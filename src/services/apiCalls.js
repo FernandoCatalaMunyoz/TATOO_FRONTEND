@@ -52,3 +52,48 @@ export const getServices = async () => {
   console.log(data);
   return data.data;
 };
+
+export const getProfile = async (token) => {
+  const options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  try {
+    const response = await fetch(`${root}users/profile`, options);
+
+    const data = await response.json();
+
+    if (!data.succes) {
+      throw new Error(data.message);
+    }
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const updateProfile = async (token, data) => {
+  const options = {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(data),
+  };
+  try {
+    const response = await fetch(`${root}users/profile`, options);
+
+    const data = await response.json();
+
+    if (!data.succes) {
+      throw new Error(data.message);
+    }
+    return data;
+  } catch (error) {
+    return error;
+  }
+};
