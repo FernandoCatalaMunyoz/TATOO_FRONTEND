@@ -69,6 +69,7 @@ export const Login = () => {
     <>
       <Header />
       <div className="loginDesign">
+        <div>Login</div>
         <CInput
           className={`inputDesign ${
             credencialesError.emailError !== "" ? "inputDesignError" : ""

@@ -53,6 +53,13 @@ export const GetServices = async () => {
   return data.data;
 };
 
+export const GetUsers = async () => {
+  const response = await fetch(`${root}users`);
+  const data = await response.json();
+  console.log(data);
+  return data;
+};
+
 export const GetProfile = async (token) => {
   const options = {
     method: "GET",
