@@ -1,5 +1,3 @@
-import { CButton } from "../common/CButton/CButton";
-
 const root = "http://localhost:4000/api/";
 
 export const RegisterUser = async (user) => {
@@ -114,4 +112,21 @@ export const UpdateProfile = async (token, data) => {
   }
 };
 
-export const DeleteUser = async () => {};
+export const DeleteUser = async (userId) => {
+  const token = JSON.parse(localStorage.getItem("passport"));
+  console.log(token);
+
+  const options = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token.token}`,
+    },
+  };
+  try {
+    const response = await fetch(`${root}users/${userId}`, options);
+    console.log(response, "response");
+    const data = await response.json();
+    return data;
+  } catch (error) {}
+};

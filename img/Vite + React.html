@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)http://localhost:5173/users -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="module">
+import RefreshRuntime from "/@react-refresh"
+RefreshRuntime.injectIntoGlobalHook(window)
+window.$RefreshReg$ = () => {}
+window.$RefreshSig$ = () => (type) => type
+window.__vite_plugin_react_preamble_installed__ = true
+</script>
+
+    <script type="module" src="./Vite + React_files/client"></script>
+
+    
+    <link rel="icon" type="image/svg+xml" href="http://localhost:5173/vite.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vite + React</title>
+  <style type="text/css" data-vite-dev-id="C:/FSD/Proyectos/TATOO_FRONTEND_REACT/Tattoo_studio_react/src/App.css">#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+</style><style type="text/css" data-vite-dev-id="C:/FSD/Proyectos/TATOO_FRONTEND_REACT/Tattoo_studio_react/src/common/Navigator/Navigator.css">.navigatorDesign {
+  color: white;
+  font-weight: bold;
+
+  transition: 0.2s;
+
+  margin: 1em;
+}
+
+.navigatorDesign:hover {
+  color: grey;
+  transition: 0.2s;
+  cursor: pointer;
+}
+</style><style type="text/css" data-vite-dev-id="C:/FSD/Proyectos/TATOO_FRONTEND_REACT/Tattoo_studio_react/src/common/Header/Header.css">.headerDesign {
+  height: 10vh;
+  width: 100vw;
+
+  background-color: rgb(2, 2, 2);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.authMenu {
+  display: flex;
+  flex-direction: row;
+}
+</style><style type="text/css" data-vite-dev-id="C:/FSD/Proyectos/TATOO_FRONTEND_REACT/Tattoo_studio_react/src/pages/Home/Home.css">.homeDesign {
+  height: 90vh;
+  width: 100vw;
+
+  background-color: beige;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  height: 90vh;
+  width: 100vw;
+}
+</style><style type="text/css" data-vite-dev-id="C:/FSD/Proyectos/TATOO_FRONTEND_REACT/Tattoo_studio_react/src/common/CInput/CInput.css">.inputDesign {
+  height: 2em;
+  width: 18em;
+
+  border: 0.1em solid black;
+  border-radius: 0.2em;
+  margin: 0.5em;
+}
+
+.inputDesignError {
+  border: 0.2em solid red;
+}
+</style><style type="text/css" data-vite-dev-id="C:/FSD/Proyectos/TATOO_FRONTEND_REACT/Tattoo_studio_react/src/pages/Register/Register.css">.registerDesign {
+  height: 90vh;
+  width: 100vw;
+
+  background-color: beige;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error {
+  height: 1em;
+  color: red;
+}
+</style><style type="text/css" data-vite-dev-id="C:/FSD/Proyectos/TATOO_FRONTEND_REACT/Tattoo_studio_react/src/common/CButton/CButton.css">.cButtonDesign {
+  height: 3em;
+  width: 18em;
+
+  border-radius: 0.5em;
+
+  background-color: red;
+  color: white;
+  font-weight: bold;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1em;
+}
+
+.cButtonDesign:hover {
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: darkred;
+}
+
+.cButtonGreen {
+  background-color: green;
+}
+
+.cButtonGreen:hover {
+  background-color: darkgreen;
+}
+</style><style type="text/css" data-vite-dev-id="C:/FSD/Proyectos/TATOO_FRONTEND_REACT/Tattoo_studio_react/src/pages/login/login.css">.loginDesign {
+  height: 90vh;
+  width: 100vw;
+
+  background-color: beige;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error {
+  height: 1em;
+  color: red;
+}
+</style><style type="text/css" data-vite-dev-id="C:/FSD/Proyectos/TATOO_FRONTEND_REACT/Tattoo_studio_react/src/pages/Studio_services/Studio_services.css">.serviceDesign {
+  height: 90vh;
+  width: 100vw;
+
+  background-color: beige;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+</style><style type="text/css" data-vite-dev-id="C:/FSD/Proyectos/TATOO_FRONTEND_REACT/Tattoo_studio_react/src/common/Card/Card.css">.cardDesign {
+  border: 0.1em solid black;
+  margin: 1em;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.titleDesign {
+  font-weight: bold;
+}
+</style><style type="text/css" data-vite-dev-id="C:/FSD/Proyectos/TATOO_FRONTEND_REACT/Tattoo_studio_react/src/pages/Profile/Profile.css">.profileDesign {
+  height: 90vh;
+  width: 100vw;
+
+  background-color: beige;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error {
+  height: 1em;
+  color: red;
+}
+</style><style type="text/css" data-vite-dev-id="C:/FSD/Proyectos/TATOO_FRONTEND_REACT/Tattoo_studio_react/src/pages/SuperAdmin/SuperAdmin.css">.sAdminDesign {
+  height: 82vh;
+  width: 95vw;
+
+  background-color: rgb(67, 65, 65);
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  color: white;
+}
+.usersContainer {
+  background-color: green;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+
+  flex-direction: column;
+}
+.dataHeader {
+  width: 95vw;
+
+  background-color: red;
+
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: row;
+}
+
+.title {
+  margin-left: 3em;
+  width: 18em;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+
+  padding-left: 1.2em;
+}
+</style><style type="text/css" data-vite-dev-id="C:/FSD/Proyectos/TATOO_FRONTEND_REACT/Tattoo_studio_react/src/common/Users/Users.css">.usersDesign {
+  width: 95vw;
+
+  height: 1em;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  margin: 0.2em;
+  color: black;
+  background-color: white;
+}
+.userDesign {
+  margin-left: -1em;
+  margin-right: em;
+
+  font-size: small;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+
+  width: 15em;
+}
+#deleteButton:hover {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+}
+
+#deleteButton {
+  width: 5em;
+  margin-left: 2em;
+}
+</style><style type="text/css" data-vite-dev-id="C:/FSD/Proyectos/TATOO_FRONTEND_REACT/Tattoo_studio_react/src/index.css">:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+</style></head>
+  <body>
+    <div id="root"><div class="headerDesign"><div class="navigatorDesign">home</div><div class="navigatorDesign">services</div><div class="authMenu"><div class="navigatorDesign">Perfil</div><div><div class="navigatorDesign">log out</div></div></div></div><div>USUARIOS REGISTRADOS</div><div class="usersContainer"><div class="dataHeader"><div class="title">ID</div><div class="title">Nombre</div><div class="title">Apellido</div><div class="title">email</div><div class="title">Creado</div><div class="title">Borrar</div></div><div class="sAdminDesign"><div class="usersDesign"><div class="userDesign">48</div><div class="userDesign">super_admin</div><div class="userDesign">super_admin</div><div class="userDesign">super_admin@super_admin.com</div><div class="userDesign">2024-03-27T14:45:58.000Z</div><div class="userDesign" id="deleteButton">Borrar</div></div><div class="usersDesign"><div class="userDesign">49</div><div class="userDesign">Melissa</div><div class="userDesign">Montenegro</div><div class="userDesign">melissa@melissa.com</div><div class="userDesign">2024-03-27T15:15:51.000Z</div><div class="userDesign" id="deleteButton">Borrar</div></div></div></div></div>
+    <script type="module" src="./Vite + React_files/main.jsx"></script>
+  
+
+</body></html>

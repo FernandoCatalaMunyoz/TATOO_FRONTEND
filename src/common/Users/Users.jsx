@@ -1,3 +1,4 @@
+import { DeleteUser } from "../../services/apiCalls";
 import "./Users.css";
 
 export const User = ({

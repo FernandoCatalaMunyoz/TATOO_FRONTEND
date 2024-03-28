@@ -28,10 +28,18 @@ export const SuperAdmin = () => {
     }
   }, [users]);
 
-  const deleteUser = async (id) => {
-    console.log("eliminar usuario", id);
-    console.log(users);
-    setUsers(users.filter((user) => user.id !== id));
+  const deleteUser = async (userId) => {
+    try {
+      console.log(userId);
+      if (userId === 1) {
+        console.log("no se puede borrar el usuario Super_admin");
+      }
+      await DeleteUser(userId);
+      console.log(userId, "userId");
+      setUsers(users.filter((user) => user.id !== userId));
+    } catch (error) {
+      console.error("Error deleting user:", error);
+    }
   };
 
   return (
@@ -57,7 +65,7 @@ export const SuperAdmin = () => {
                 lastName={person.lastName}
                 email={person.email}
                 createdAt={person.createdAt}
-                clickFunction={() => deleteUser()}
+                clickFunction={() => deleteUser(person.id)}
               ></User>
             );
           })}
