@@ -6,14 +6,14 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
-  margin: 0.2emem;
+  justify-content: start;
+  margin: 0.2em;
   color: black;
   background-color: white;
 }
 .userDesign {
-  margin-left: 2em;
-  margin-right: 1em;
+  margin-left: -1em;
+  margin-right: em;
 
   font-size: small;
 
@@ -22,4 +22,14 @@
   align-items: flex-start;
 
   width: 15em;
+}
+#deleteButton:hover {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+}
+
+#deleteButton {
+  width: 5em;
+  margin-left: 2em;
 }

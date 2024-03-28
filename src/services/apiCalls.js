@@ -1,3 +1,5 @@
+import { CButton } from "../common/CButton/CButton";
+
 const root = "http://localhost:4000/api/";
 
 export const RegisterUser = async (user) => {
@@ -112,7 +114,4 @@ export const UpdateProfile = async (token, data) => {
   }
 };
 
-export const DeleteUser = async () => {
-  const userId = JSON.parse(localStorage.getItem("passport")).token.id;
-  console.log(userId);
-};
+export const DeleteUser = async () => {};

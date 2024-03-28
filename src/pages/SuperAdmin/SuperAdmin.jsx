@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { GetUsers } from "../../services/apiCalls";
+import { DeleteUser, GetUsers } from "../../services/apiCalls";
 import { Header } from "../../common/Header/Header";
-import { Card } from "../../common/Card/Card";
 import "./SuperAdmin.css";
-import { List } from "../../common/List/List";
+import { User } from "../../common/Users/Users";
 
 export const SuperAdmin = () => {
   const user = JSON.parse(localStorage.getItem("passport"));
@@ -28,12 +27,20 @@ export const SuperAdmin = () => {
       bringData();
     }
   }, [users]);
+
+  const deleteUser = async (id) => {
+    console.log("eliminar usuario", id);
+    console.log(users);
+    setUsers(users.filter((user) => user.id !== id));
+  };
+
   return (
     <>
       <Header />
       <div>USUARIOS REGISTRADOS</div>
       <div className="usersContainer">
         <div className="dataHeader">
+          <div className="title">ID</div>
           <div className="title">Nombre</div>
           <div className="title">Apellido</div>
           <div className="title">email</div>
@@ -41,15 +48,17 @@ export const SuperAdmin = () => {
           <div className="title">Borrar</div>
         </div>
         <div className="sAdminDesign">
-          {users.slice(0, 10).map((person) => {
+          {users.slice(0, 10).map((person, id) => {
             return (
-              <List
+              <User
                 key={person.id}
+                id={person.id}
                 firstName={person.firstName}
                 lastName={person.lastName}
                 email={person.email}
                 createdAt={person.createdAt}
-              ></List>
+                clickFunction={() => deleteUser()}
+              ></User>
             );
           })}
         </div>
