@@ -38,6 +38,7 @@ export const SuperAdmin = () => {
           <div className="title">Apellido</div>
           <div className="title">email</div>
           <div className="title">Creado</div>
+          <div className="title">Borrar</div>
         </div>
         <div className="sAdminDesign">
           {users.slice(0, 10).map((person) => {

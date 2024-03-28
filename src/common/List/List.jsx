@@ -7,7 +7,9 @@ export const List = ({ firstName, lastName, email, createdAt, deleteUser }) => {
       <div className="userData"> {lastName}</div>
       <div className="userData">{email}</div>
       <div className="userData">{createdAt}</div>
-      <input type="checkbox" />
+      <div className="divButton">
+        <button className="deleteButton">Borrar</button>
+      </div>
     </div>
   );
 };

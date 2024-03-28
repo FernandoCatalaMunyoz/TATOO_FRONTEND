@@ -16,3 +16,18 @@
   justify-content: start;
   align-items: start;
 }
+.deleteButton {
+  background-color: gray;
+
+  height: 1.5em;
+  display: flex;
+  align-items: center;
+}
+.divButton {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  flex-direction: row;
+
+  margin-left: 2em;
+}
