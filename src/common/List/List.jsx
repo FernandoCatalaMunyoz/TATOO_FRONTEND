@@ -1,15 +1,16 @@
+import { DeleteUser } from "../../services/apiCalls";
+import { User } from "../Users/Users";
 import "./List.css";
 
-export const List = ({ firstName, lastName, email, createdAt, deleteUser }) => {
+export const List = ({ firstName, lastName, email, createdAt }) => {
   return (
     <div className="listDesign">
-      <div className="userData">{firstName}</div>
-      <div className="userData"> {lastName}</div>
-      <div className="userData">{email}</div>
-      <div className="userData">{createdAt}</div>
-      <div className="divButton">
-        <button className="deleteButton">Borrar</button>
-      </div>
+      <User
+        firstName={firstName}
+        lastName={lastName}
+        email={email}
+        created={createdAt}
+      ></User>
     </div>
   );
 };

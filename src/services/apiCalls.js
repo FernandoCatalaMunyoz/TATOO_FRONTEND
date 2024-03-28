@@ -90,8 +90,6 @@ export const GetProfile = async (token) => {
 };
 
 export const UpdateProfile = async (token, data) => {
-  console.log(token);
-  console.log(data, "data");
   const options = {
     method: "PUT",
     headers: {
@@ -112,4 +110,9 @@ export const UpdateProfile = async (token, data) => {
   } catch (error) {
     return error;
   }
+};
+
+export const DeleteUser = async () => {
+  const userId = JSON.parse(localStorage.getItem("passport")).token.id;
+  console.log(userId);
 };
