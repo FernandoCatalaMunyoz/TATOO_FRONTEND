@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { DeleteUser, GetUsers } from "../../services/apiCalls";
-import { Header } from "../../common/Header/Header";
 import "./SuperAdmin.css";
 import { User } from "../../common/Users/Users";
-
+import { AdminHeader } from "../../common/AdminHeader/AdminHeader";
+import { Header } from "../../common/Header/Header";
 export const SuperAdmin = () => {
   const user = JSON.parse(localStorage.getItem("passport"));
 
@@ -30,10 +30,6 @@ export const SuperAdmin = () => {
 
   const deleteUser = async (userId) => {
     try {
-      console.log(userId);
-      if (userId === 1) {
-        console.log("no se puede borrar el usuario Super_admin");
-      }
       await DeleteUser(userId);
       console.log(userId, "userId");
       setUsers(users.filter((user) => user.id !== userId));

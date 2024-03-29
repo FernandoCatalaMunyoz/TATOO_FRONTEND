@@ -113,9 +113,6 @@ export const UpdateProfile = async (token, data) => {
 };
 
 export const DeleteUser = async (userId) => {
-  const token = JSON.parse(localStorage.getItem("passport"));
-  console.log(token);
-
   const options = {
     method: "DELETE",
     headers: {
