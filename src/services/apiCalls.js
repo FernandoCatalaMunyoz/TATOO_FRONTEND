@@ -127,3 +127,5 @@ export const DeleteUser = async (userId) => {
     return data;
   } catch (error) {}
 };
+
+export const CreateAppointment = async () => {};

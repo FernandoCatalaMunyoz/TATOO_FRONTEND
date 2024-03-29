@@ -1,0 +1,19 @@
+.appointmentView {
+  height: 90vh;
+
+  background-color: grey;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.createAppointment {
+  width: 50vw;
+
+  background-color: lightgreen;
+}
+.appointmentRender {
+  width: 50vw;
+
+  background-color: lightblue;
+}
