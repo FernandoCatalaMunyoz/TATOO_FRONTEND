@@ -1,29 +1,50 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Header } from "../../common/Header/Header";
 import "./UserAppointment.css";
 import { useNavigate } from "react-router-dom";
-import { CreateAppointment } from "../../services/apiCalls";
+import { CreateAppointment, GetAppointments } from "../../services/apiCalls";
 import { CInput } from "../../common/CInput/CInput";
 import { CButton } from "../../common/CButton/CButton";
+import e from "cors";
 
 export const UserAppointment = () => {
+  const user = JSON.parse(localStorage.getItem("passport"));
+
   const navigate = useNavigate();
-  const [appointment, setAppointment] = useState({
+  const [appointments, setAppointments] = useState({
     appointmentDate: "",
     serviceId: "",
   });
 
   const [msgError, setMsgError] = useState("");
 
+  const inputHandler = (e) => {
+    setAppointments((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  useEffect(() => {
+    if (appointments.lenght === 0) {
+    }
+    const bringData = async () => {
+      const fetched = await GetAppointments();
+      console.log(fetched, "fetcheado");
+      setAppointments(fetched);
+    };
+    bringData();
+  }, [appointments]);
+
   const createAppointment = async () => {
     try {
-      for (let element in appointment) {
-        if (appointment[element] === "") {
+      for (let element in appointments) {
+        if (appointments[element] === "") {
           throw new Error("Todos los campos tienen que estar rellenos");
         }
       }
 
-      const fetched = await CreateAppointment(appointment);
+      const fetched = await CreateAppointment(appointments);
 
       setMsgError(fetched.message);
     } catch (error) {
@@ -37,8 +58,16 @@ export const UserAppointment = () => {
         <div className="createAppointment">
           <div className="appointmentInput">
             <div>Crear nueva cita</div>
-            <CInput className={"inputAppointment"} type={"date"} />
-            <CInput className={"inputAppointment"} type={"time"} />
+            <CInput
+              className={"inputAppointment"}
+              type={"date"}
+              value={appointments.appointmentDate || ""}
+            />
+            <CInput
+              className={"inputAppointment"}
+              type={"time"}
+              value={appointments.appointmentDate || ""}
+            />
             <form action="#">
               <label htmlFor="serv" id="serv">
                 Servicios
