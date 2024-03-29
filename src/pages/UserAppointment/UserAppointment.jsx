@@ -92,6 +92,11 @@ export const UserAppointment = () => {
 
         <div className="appointmentRender">
           <div>Mis citas</div>
+          <div className="userAppointments">
+            {appointments.slice(0, 10).map((date) => {
+              return <></>;
+            })}
+          </div>
         </div>
       </div>
     </>
