@@ -20,6 +20,8 @@ export const Header = () => {
         <div className="authMenu">
           <Navigator title={"Perfil"} destination={"/profile"} />
           <Navigator title={"Mis citas"} destination={"/appointments"} />
+          <Navigator title={"Usuarios"} destination={"/users"} />
+
           <div onClick={logOut}>
             <Navigator title={"log out"} destination={"/"} />
           </div>
