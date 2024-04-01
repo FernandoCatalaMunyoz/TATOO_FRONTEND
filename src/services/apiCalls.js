@@ -129,6 +129,25 @@ export const DeleteUser = async (userId) => {
 };
 
 export const CreateAppointment = async (appointment) => {
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  try {
+    const response = await fetch(`${root}appointments`, options);
+
+    const data = await response.json();
+    if (!data.succes) {
+      throw new Error(data.message);
+    }
+    return data;
+  } catch (error) {
+    return error;
+  }
+
   console.log(appointment);
 };
 

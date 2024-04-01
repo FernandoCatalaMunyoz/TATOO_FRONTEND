@@ -27,13 +27,13 @@ export const UserAppointment = () => {
 
   useEffect(() => {
     if (appointments.lenght === 0) {
+      const bringData = async () => {
+        const fetched = await GetAppointments();
+        console.log(fetched, "fetcheado");
+        setAppointments(fetched);
+      };
+      bringData();
     }
-    const bringData = async () => {
-      const fetched = await GetAppointments();
-      console.log(fetched, "fetcheado");
-      setAppointments(fetched);
-    };
-    bringData();
   }, [appointments]);
 
   const createAppointment = async () => {
@@ -61,12 +61,12 @@ export const UserAppointment = () => {
             <CInput
               className={"inputAppointment"}
               type={"date"}
-              value={appointments.appointmentDate || ""}
+              value={appointments || ""}
             />
             <CInput
               className={"inputAppointment"}
               type={"time"}
-              value={appointments.appointmentDate || ""}
+              value={appointments || ""}
             />
             <form action="#">
               <label htmlFor="serv" id="serv">
@@ -90,14 +90,14 @@ export const UserAppointment = () => {
           </div>
         </div>
 
-        <div className="appointmentRender">
+        {/* <div className="appointmentRender">
           <div>Mis citas</div>
           <div className="userAppointments">
             {appointments.slice(0, 10).map((date) => {
               return <></>;
             })}
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );
