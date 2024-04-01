@@ -128,7 +128,7 @@ export const DeleteUser = async (userId) => {
   } catch (error) {}
 };
 
-export const CreateAppointment = async (appointment) => {
+export const CreateAppointment = async (token) => {
   const options = {
     method: "POST",
     headers: {
@@ -147,8 +147,6 @@ export const CreateAppointment = async (appointment) => {
   } catch (error) {
     return error;
   }
-
-  console.log(appointment);
 };
 
 export const GetAppointments = async (token) => {

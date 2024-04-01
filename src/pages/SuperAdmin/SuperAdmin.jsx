@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { DeleteUser, GetUsers } from "../../services/apiCalls";
 import "./SuperAdmin.css";
 import { User } from "../../common/Users/Users";
-import { AdminHeader } from "../../common/AdminHeader/AdminHeader";
+
 import { Header } from "../../common/Header/Header";
 export const SuperAdmin = () => {
   const user = JSON.parse(localStorage.getItem("passport"));

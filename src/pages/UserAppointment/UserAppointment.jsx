@@ -5,16 +5,16 @@ import { useNavigate } from "react-router-dom";
 import { CreateAppointment, GetAppointments } from "../../services/apiCalls";
 import { CInput } from "../../common/CInput/CInput";
 import { CButton } from "../../common/CButton/CButton";
-import e from "cors";
+
+import { Appointment } from "../../common/Appointments/Appointments";
 
 export const UserAppointment = () => {
-  const user = JSON.parse(localStorage.getItem("passport"));
+  const tokenData = JSON.parse(localStorage.getItem("passport"));
+  const [tokenStorage, setTokenStorage] = useState(tokenData?.token);
+  const [dataBase, setDataBase] = useState(false);
 
   const navigate = useNavigate();
-  const [appointments, setAppointments] = useState({
-    appointmentDate: "",
-    serviceId: "",
-  });
+  const [appointments, setAppointments] = useState([]);
 
   const [msgError, setMsgError] = useState("");
 
@@ -26,13 +26,18 @@ export const UserAppointment = () => {
   };
 
   useEffect(() => {
-    if (appointments.lenght === 0) {
-      const bringData = async () => {
-        const fetched = await GetAppointments();
-        console.log(fetched, "fetcheado");
-        setAppointments(fetched);
+    if (dataBase === false) {
+      const getUserAppointments = async () => {
+        try {
+          const fetched = await GetAppointments(tokenStorage);
+          console.log(fetched, "fetcheado");
+          setAppointments(fetched.data);
+          setDataBase(true);
+        } catch (error) {
+          console.log(error);
+        }
       };
-      bringData();
+      getUserAppointments();
     }
   }, [appointments]);
 
@@ -60,28 +65,27 @@ export const UserAppointment = () => {
             <div>Crear nueva cita</div>
             <CInput
               className={"inputAppointment"}
-              type={"date"}
-              value={appointments || ""}
+              name={"appointmentDate"}
+              placeHolder={"MM/DD/AA HH:MM"}
+              type={"text"}
+              value={appointments.appointmentDate || ""}
+              onChangeFunction={(e) => inputHandler(e)}
             />
+            <div>Servicios:</div>
+            <div>1: Tatuajes personalizados</div>
+            <div>2: Tatuajes del catálogo</div>
+            <div>3: Restauración y rejuvenecimiento de trabajos</div>
+            <div>4: Colocación de piercings y dilatadores</div>
+            <div>5: Venta de piercings y otros artículos</div>
             <CInput
-              className={"inputAppointment"}
-              type={"time"}
-              value={appointments || ""}
+              className={"serviceId"}
+              name={"serviceId"}
+              placeHolder={"numero del servicio"}
+              type={"text"}
+              value={appointments.serviceId || ""}
+              onChangeFunction={(e) => inputHandler(e)}
             />
-            <form action="#">
-              <label htmlFor="serv" id="serv">
-                Servicios
-              </label>
-              <select name="Servicios">
-                <option value="1">Tatuaje personalizado</option>
-                <option value="2">Tatuaje de catálogo</option>
-                <option value="3">
-                  Restauracion y rejuvenecimiento de trabajos
-                </option>
-                <option value="4">Colocacion piercings y dilatadores</option>
-                <option value="5">Venta de piercings y otros artículos</option>
-              </select>
-            </form>
+
             <CButton
               className={"cButtonDesign"}
               title={"Pedir cita"}
@@ -90,14 +94,19 @@ export const UserAppointment = () => {
           </div>
         </div>
 
-        {/* <div className="appointmentRender">
+        <div className="appointmentRender">
           <div>Mis citas</div>
           <div className="userAppointments">
-            {appointments.slice(0, 10).map((date) => {
-              return <></>;
+            {appointments.map((appointment) => {
+              return (
+                <Appointment
+                  appointmentDate={appointment.appointmentDate}
+                  service={appointment.serviceId}
+                ></Appointment>
+              );
             })}
           </div>
-        </div> */}
+        </div>
       </div>
     </>
   );

@@ -1,21 +1,11 @@
-import "./Appointments.css";
+import "./Appointment.css";
 
-export const Appointment = ({
-  id,
-  appointmentDate,
-  appointmentTime,
-  service,
-  clickFunction,
-}) => {
+export const Appointment = ({ key, appointmentDate, service }) => {
   return (
-    <div appointmentDesign>
-      <div className="appointmentDesign">{id}</div>
+    <div appointmentDesign className="appointmentDesign" key={key}>
       <div className="appointmentDesign">{appointmentDate}</div>
-      <div className="appointmentDesign">{appointmentTime}</div>
+
       <div className="appointmentDesign">{service}</div>
-      <div className="appointmentDesign" onClick={clickFunction}>
-        Borrar
-      </div>
     </div>
   );
 };
