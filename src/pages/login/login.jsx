@@ -75,7 +75,7 @@ export const Login = () => {
             credencialesError.emailError !== "" ? "inputDesignError" : ""
           }`}
           type={"email"}
-          placeholder={"email"}
+          placeHolder={"email"}
           name={"email"}
           disabled={""}
           value={credenciales.email || ""}
@@ -88,7 +88,7 @@ export const Login = () => {
             credencialesError.passwordError !== "" ? "inputDesignError" : ""
           }`}
           type={"password"}
-          placeholder={"password"}
+          placeHolder={"password"}
           name={"password"}
           disabled={""}
           value={credenciales.password || ""}

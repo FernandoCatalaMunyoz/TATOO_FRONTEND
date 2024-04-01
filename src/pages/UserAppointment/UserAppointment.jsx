@@ -77,7 +77,7 @@ export const UserAppointment = () => {
               className={"inputAppointment"}
               name={"appointmentDate"}
               placeHolder={"MM/DD/AA HH:MM"}
-              type={"text"}
+              type={"timedate"}
               value={appointmentData.appointmentDate || ""}
               onChangeFunction={(e) => inputHandler(e)}
             />
