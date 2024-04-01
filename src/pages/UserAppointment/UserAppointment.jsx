@@ -41,6 +41,16 @@ export const UserAppointment = () => {
     }
   }, [appointments]);
 
+  const [appointmentData, setAppointmentData] = useState({
+    appointmentDate: "",
+    serviceId: "",
+    userId: tokenData?.decodificado?.userId,
+  });
+  const [appointmentDataError, setAppointmentDataError] = useState({
+    appointmentDateError: "",
+    serviceIdError: "",
+  });
+
   const createAppointment = async () => {
     try {
       for (let element in appointments) {
@@ -49,7 +59,7 @@ export const UserAppointment = () => {
         }
       }
 
-      const fetched = await CreateAppointment(appointments);
+      const fetched = await CreateAppointment(tokenStorage, appointmentData);
 
       setMsgError(fetched.message);
     } catch (error) {
@@ -68,7 +78,7 @@ export const UserAppointment = () => {
               name={"appointmentDate"}
               placeHolder={"MM/DD/AA HH:MM"}
               type={"text"}
-              value={appointments.appointmentDate || ""}
+              value={appointmentData.appointmentDate || ""}
               onChangeFunction={(e) => inputHandler(e)}
             />
             <div>Servicios:</div>
@@ -82,10 +92,10 @@ export const UserAppointment = () => {
               name={"serviceId"}
               placeHolder={"numero del servicio"}
               type={"text"}
-              value={appointments.serviceId || ""}
+              value={appointmentData.serviceId || ""}
               onChangeFunction={(e) => inputHandler(e)}
             />
-
+            <div className="error">{appointmentDataError.serviceIdError}</div>
             <CButton
               className={"cButtonDesign"}
               title={"Pedir cita"}
@@ -101,7 +111,7 @@ export const UserAppointment = () => {
               return (
                 <Appointment
                   appointmentDate={appointment.appointmentDate}
-                  service={appointment.serviceId}
+                  service={appointment.service}
                 ></Appointment>
               );
             })}
