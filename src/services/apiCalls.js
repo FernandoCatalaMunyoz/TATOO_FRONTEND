@@ -131,17 +131,17 @@ export const DeleteUser = async (userId) => {
   } catch (error) {}
 };
 
-export const CreateAppointment = async (token) => {
+export const CreateAppointment = async (token, appointmentData) => {
   const options = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
+    body: JSON.stringify(appointmentData),
   };
   try {
     const response = await fetch(`${root}appointments`, options);
-
     const data = await response.json();
     if (!data.succes) {
       throw new Error(data.message);

@@ -21,9 +21,14 @@ export const UserAppointment = () => {
   const [appointments, setAppointments] = useState([]);
 
   const [msgError, setMsgError] = useState("");
+  const [appointmentData, setAppointmentData] = useState({
+    appointmentDate: "",
+    serviceId: "",
+    userId: tokenData?.decodificado?.userId,
+  });
 
   const inputHandler = (e) => {
-    setAppointments((prevState) => ({
+    setAppointmentData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
@@ -34,7 +39,7 @@ export const UserAppointment = () => {
       const getUserAppointments = async () => {
         try {
           const fetched = await GetAppointments(tokenStorage);
-          console.log(fetched.data, "fetcheado");
+
           setAppointments(fetched.data);
           setDataBase(true);
         } catch (error) {
@@ -45,11 +50,6 @@ export const UserAppointment = () => {
     }
   }, [appointments]);
 
-  const [appointmentData, setAppointmentData] = useState({
-    appointmentDate: "",
-    serviceId: "",
-    userId: tokenData?.decodificado?.userId,
-  });
   const [appointmentDataError, setAppointmentDataError] = useState({
     appointmentDateError: "",
     serviceIdError: "",
@@ -57,14 +57,14 @@ export const UserAppointment = () => {
 
   const createAppointment = async () => {
     try {
-      for (let element in appointments) {
+      for (let element in appointmentData) {
         if (appointments[element] === "") {
           throw new Error("Todos los campos tienen que estar rellenos");
         }
       }
 
       const fetched = await CreateAppointment(tokenStorage, appointmentData);
-
+      console.log(fetched, "create fetcheado");
       setMsgError(fetched.message);
     } catch (error) {
       setMsgError(error.message);
@@ -113,7 +113,7 @@ export const UserAppointment = () => {
             <CButton
               className={"cButtonDesign"}
               title={"Pedir cita"}
-              functionEmit={createAppointment}
+              functionEmit={() => createAppointment()}
             />
           </div>
         </div>
@@ -121,11 +121,12 @@ export const UserAppointment = () => {
         <div className="appointmentRender">
           <div>Mis citas</div>
           <div className="userAppointments">
-            {appointments.map((appointment) => {
+            {appointments.map((appointment, id) => {
               return (
                 <Appointment
+                  key={id}
                   appointmentDate={appointment.appointmentDate}
-                  service={appointment.service}
+                  serviceName={appointment.service.servicesName}
                   clickFunction={() => {
                     deleteAppointment(appointment.id);
                   }}
