@@ -179,7 +179,7 @@ export const DeleteAppointmentById = async (tokenData, id) => {
       Authorization: `Bearer ${tokenData?.token}`,
     },
   };
-
+  console.log(id, "id del appointment");
   try {
     const response = await fetch(`${root}appointments/${id}`, clientData);
 

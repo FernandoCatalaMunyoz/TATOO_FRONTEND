@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import { Header } from "../../common/Header/Header";
 import "./UserAppointment.css";
 import { useNavigate } from "react-router-dom";
-import { CreateAppointment, GetAppointments } from "../../services/apiCalls";
+import {
+  CreateAppointment,
+  DeleteAppointmentById,
+  GetAppointments,
+} from "../../services/apiCalls";
 import { CInput } from "../../common/CInput/CInput";
 import { CButton } from "../../common/CButton/CButton";
 
@@ -30,7 +34,7 @@ export const UserAppointment = () => {
       const getUserAppointments = async () => {
         try {
           const fetched = await GetAppointments(tokenStorage);
-          console.log(fetched, "fetcheado");
+          console.log(fetched.data, "fetcheado");
           setAppointments(fetched.data);
           setDataBase(true);
         } catch (error) {
@@ -66,6 +70,16 @@ export const UserAppointment = () => {
       setMsgError(error.message);
     }
   };
+
+  const deleteAppointment = async (id) => {
+    try {
+      await DeleteAppointmentById(tokenData, id);
+      setAppointments(
+        appointments.filter((appointment) => appointment.id !== id)
+      );
+    } catch (error) {}
+  };
+
   return (
     <>
       <Header></Header>
@@ -112,6 +126,9 @@ export const UserAppointment = () => {
                 <Appointment
                   appointmentDate={appointment.appointmentDate}
                   service={appointment.service}
+                  clickFunction={() => {
+                    deleteAppointment(appointment.id);
+                  }}
                 ></Appointment>
               );
             })}
