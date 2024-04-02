@@ -8,7 +8,7 @@ El objetivo de este proyecto es diseñar el frontend de un estudio de tatuajes e
 
 ### INDEX :open_file_folder:
 
-- [FRONT TUTATOO WEB](#front-tutatoo-web)
+- [FRONT TATOO STUDIO WEB](#front-tutatoo-web)
   - [TARGET :dart:](#target-dart)
   - [INDEX :open_file_folder:](#index-open_file_folder)
   - [STACK :wrench:](#stack-wrench)
