@@ -19,7 +19,7 @@ export const UserAppointment = () => {
 
   const navigate = useNavigate();
   const [appointments, setAppointments] = useState([]);
-
+  const [message, setMessage] = useState("");
   const [msgError, setMsgError] = useState("");
   const [appointmentData, setAppointmentData] = useState({
     appointmentDate: "",
@@ -65,7 +65,7 @@ export const UserAppointment = () => {
 
       const fetched = await CreateAppointment(tokenStorage, appointmentData);
       console.log(fetched, "create fetcheado");
-      setMsgError(fetched.message);
+      message(fetched.message);
     } catch (error) {
       setMsgError(error.message);
     }

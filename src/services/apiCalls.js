@@ -143,7 +143,7 @@ export const CreateAppointment = async (token, appointmentData) => {
   try {
     const response = await fetch(`${root}appointments`, options);
     const data = await response.json();
-    if (!data.succes) {
+    if (!data.success) {
       throw new Error(data.message);
     }
     return data;
