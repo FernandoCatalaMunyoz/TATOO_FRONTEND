@@ -39,3 +39,58 @@ Esta API permite crear usuario y loggearse en la tienda online del estudio de ta
 ### Diagrama BD
 
 ![alt text](img/Esquema%20BD.JPG)
+
+### Diseño Front
+
+REGISTRO
+
+![alt text](img/Captura%20vista%20Register.JPG)
+
+En esta vista podremos registrarlos, requiriendo Nombre, Apellidos, email y contraseña
+
+LOGIN
+
+![alt text](img/Captura%20vista%20Login.JPG)
+
+En Login, con las credenciales de email y contrseña que hemos introducido en el Login podremos acceder a nuestra pagina personalizada
+
+PERFIL
+
+![alt text](img/Captura%20vista%20perfil.JPG)
+
+En esta vista tenemos los datos del usuario loggeado pudiendo cambiar datoso como nombre y apellido
+
+MIS CITAS
+
+![alt text](img/Captura%20vista%20%20citas%20usuario.JPG)
+
+En esta vista podremos hacer dos cosas:
+
+- Crear un cita: introducimos fecha y hora y despues el codigo del servicio que queremos contratar.
+- Ver y borras las citas ya creadas por nosotros.
+
+SERVICIOS
+
+![alt text](img/Captura%20vista%20Services.JPG)
+
+En esta vista podremos ver los diversos servicios que ofrece nuestro estudio.
+
+USUARIOS(super_admin)
+
+![alt text](img/Captura%20vista%20usuarios.JPG)
+
+A esta vista solo podra acceder el usuario que tenga el rol de Super_admin.
+En la que podra ver todos los usuarios registrados y puede borrar dchos usuarios.
+
+## AUTOR
+
+- Fernando Catalá - Full Stack Developer
+
+- <a href="https://github.com/FernandoCatalaMunyoz">GitHub
+- <a href="https://linkedin.com/in/fernando-catalá-muñoz-166b5622b">Linkedin</a>
+
+## FUTURAS MEJORAS
+
+- Mejora aspecto de todas las listas que se muestran en la pagina
+- Convertir a responsive para poder utilizar en distintos dispositivos
+- Crear mensajes informativos cuando algo no se pueda hacer u ocurra algun error.
