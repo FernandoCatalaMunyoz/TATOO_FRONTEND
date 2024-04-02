@@ -41,7 +41,7 @@ export const SuperAdmin = () => {
   return (
     <>
       <Header />
-      <div>USUARIOS REGISTRADOS</div>
+      <div className="usersTitle">USUARIOS REGISTRADOS</div>
       <div className="usersContainer">
         <div className="dataHeader">
           <div className="title">ID</div>
