@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Header } from "../../common/Header/Header";
 import "./UserAppointment.css";
-import { useNavigate } from "react-router-dom";
 import {
   CreateAppointment,
   DeleteAppointmentById,
@@ -16,15 +15,18 @@ export const UserAppointment = () => {
   const tokenData = JSON.parse(localStorage.getItem("passport"));
   const [tokenStorage, setTokenStorage] = useState(tokenData?.token);
   const [dataBase, setDataBase] = useState(false);
-
-  const navigate = useNavigate();
   const [appointments, setAppointments] = useState([]);
   const [message, setMessage] = useState("");
   const [msgError, setMsgError] = useState("");
+
   const [appointmentData, setAppointmentData] = useState({
     appointmentDate: "",
     serviceId: "",
     userId: tokenData?.decodificado?.userId,
+  });
+  const [appointmentDataError, setAppointmentDataError] = useState({
+    appointmentDateError: "",
+    serviceIdError: "",
   });
 
   const inputHandler = (e) => {
@@ -50,11 +52,7 @@ export const UserAppointment = () => {
     }
   }, [appointments]);
 
-  const [appointmentDataError, setAppointmentDataError] = useState({
-    appointmentDateError: "",
-    serviceIdError: "",
-  });
-
+  //Funcion para crear una cita, llamando a la funcion CreateAppointment
   const createAppointment = async () => {
     try {
       for (let element in appointmentData) {
@@ -65,12 +63,13 @@ export const UserAppointment = () => {
 
       const fetched = await CreateAppointment(tokenStorage, appointmentData);
       console.log(fetched, "create fetcheado");
-      message(fetched.message);
+
+      setAppointments([...appointments, fetched.data]);
     } catch (error) {
       setMsgError(error.message);
     }
   };
-
+  //Funcion para borrar cita
   const deleteAppointment = async (id) => {
     try {
       await DeleteAppointmentById(tokenData, id);
