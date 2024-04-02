@@ -4,7 +4,7 @@
 
 ### INDICE :open_file_folder:
 
-- [FRONT TUTATOO WEB](#front-tutatoo-web)
+- [FRONT STUDIO TATOO WEB](#front-tutatoo-web)
 
   - [OBJETIVO ](#target-dart)
   - [INDICE ](#index-open_file_folder)
