@@ -179,10 +179,10 @@ export const DeleteAppointmentById = async (tokenData, id) => {
       Authorization: `Bearer ${tokenData?.token}`,
     },
   };
-  console.log(id, "id del appointment");
+  console.log(id.id, "id del appointment");
   try {
-    const response = await fetch(`${root}appointments/${id}`, clientData);
-
+    const response = await fetch(`${root}appointments/${id.id}`, clientData);
+    console.log(response, "response");
     const data = await response.json();
 
     if (!data.success) {

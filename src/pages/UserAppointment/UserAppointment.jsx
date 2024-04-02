@@ -64,7 +64,7 @@ export const UserAppointment = () => {
       const fetched = await CreateAppointment(tokenStorage, appointmentData);
       console.log(fetched, "create fetcheado");
 
-      setAppointments([...appointments, fetched.data]);
+      setAppointments([...appointmentData, fetched.data]);
     } catch (error) {
       setMsgError(error.message);
     }
@@ -122,14 +122,18 @@ export const UserAppointment = () => {
           <div className="userAppointments">
             {appointments.map((appointment, id) => {
               return (
-                <Appointment
-                  key={id}
-                  appointmentDate={appointment.appointmentDate}
-                  serviceName={appointment.service.servicesName}
-                  clickFunction={() => {
-                    deleteAppointment(appointment.id);
-                  }}
-                ></Appointment>
+                <>
+                  <Appointment
+                    key={id}
+                    appointmentDate={appointment.appointmentDate}
+                    serviceName={appointment.service.servicesName}
+                  ></Appointment>
+                  <CButton
+                    className={"cButtonDesign"}
+                    title={"Borrar cita"}
+                    functionEmit={() => deleteAppointment(appointment, id)}
+                  ></CButton>
+                </>
               );
             })}
           </div>
